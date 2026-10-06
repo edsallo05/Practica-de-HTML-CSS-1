@@ -1,0 +1,162 @@
+/* Colores: tema claro por defecto, oscuro según el sistema */
+:root {
+  --fondo: #fff9f2;
+  --texto: #2b1d14;
+  --acento: #8b4513;
+  --sobre-acento: #ffffff;
+  --tarjeta: #ffffff;
+  --borde: #d8c3ae;
+}
+/* Tema oscuro: por defecto según el sistema.
+   El checkbox "Cambiar tema" invierte ese tema (solo CSS, sin JavaScript). */
+@media (prefers-color-scheme: dark) {
+  :root:not(:has(#tema:checked)) {
+    --fondo: #1c1410;
+    --texto: #f5ebe0;
+    --acento: #d9a066;
+    --sobre-acento: #1c1410;
+    --tarjeta: #2a1e17;
+    --borde: #5a4636;
+  }
+}
+@media (not (prefers-color-scheme: dark)) {
+  :root:has(#tema:checked) {
+    --fondo: #1c1410;
+    --texto: #f5ebe0;
+    --acento: #d9a066;
+    --sobre-acento: #1c1410;
+    --tarjeta: #2a1e17;
+    --borde: #5a4636;
+  }
+}
+
+/* Checkbox oculto visualmente pero accesible con teclado */
+.oculto { position: absolute; opacity: 0; width: 1px; height: 1px; }
+#tema:focus-visible + .btn-tema { outline: 3px solid var(--sobre-acento); outline-offset: 2px; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+a { color: var(--acento); }
+
+/* Header y nav con Flexbox */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px 30px;
+  background: var(--acento);
+  color: var(--sobre-acento);
+}
+.logo { margin: 0; font-size: 1.5rem; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; }
+nav a { color: var(--sobre-acento); text-decoration: none; font-weight: bold; }
+nav a:hover { text-decoration: underline; }
+
+.btn-tema {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  color: var(--sobre-acento);
+  border: 2px solid var(--sobre-acento);
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+main { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+
+/* Sección destacada + animación de entrada */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  margin-bottom: 30px;
+  animation: entrada 1.2s ease-out;
+}
+.hero h2 { font-size: 2.5rem; margin-top: 0; }
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.boton, button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--acento);
+  color: var(--sobre-acento);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Nosotros: Grid de 2 columnas */
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.dos-columnas img { width: 100%; border-radius: 10px; }
+
+/* Servicios: tarjetas con Flexbox y hover */
+.tarjetas { display: flex; gap: 20px; flex-wrap: wrap; }
+.tarjeta {
+  flex: 1 1 250px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tarjeta:hover { transform: translateY(-8px); box-shadow: 0 8px 16px rgba(0,0,0,0.25); }
+.tarjeta img { width: 100%; border-radius: 8px; }
+
+/* Formularios */
+form {
+  max-width: 500px;
+  padding: 20px;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+label { display: block; margin: 12px 0 4px; font-weight: bold; }
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--fondo);
+  color: var(--texto);
+  font-size: 1rem;
+}
+.fila-check { display: flex; align-items: center; gap: 8px; margin: 12px 0; }
+.fila-check label { margin: 0; font-weight: normal; }
+form button { margin-top: 10px; }
+address { margin-top: 25px; font-style: normal; }
+
+footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid var(--borde);
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  .dos-columnas { grid-template-columns: 1fr; }
+  header { justify-content: center; text-align: center; }
+  .hero h2 { font-size: 1.8rem; }
+}

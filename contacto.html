@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Escríbenos o visita Café Aroma. Dirección y formulario de contacto.">
+  <meta name="author" content="Café Aroma">
+  <title>Contacto | Café Aroma</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">☕ Café Aroma</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="login.html">Iniciar sesión</a>
+      <input type="checkbox" id="tema" class="oculto">
+      <label for="tema" class="btn-tema">🌓 Cambiar tema</label>
+    </nav>
+  </header>
+  <main>
+    <h2>Contáctanos</h2>
+    <form action="#" method="post">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required minlength="3">
+
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" name="correo" required>
+
+      <label for="motivo">Motivo</label>
+      <select id="motivo" name="motivo" required>
+        <option value="">Selecciona una opción</option>
+        <option>Consulta</option>
+        <option>Reserva</option>
+        <option>Sugerencia</option>
+      </select>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required minlength="10"></textarea>
+
+      <div class="fila-check">
+        <input type="checkbox" id="acepto" name="acepto" required>
+        <label for="acepto">Acepto ser contactado</label>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+    <address>
+      <strong>Dirección:</strong> Calle Principal #123, Centro, La Habana, Cuba.
+    </address>
+  </main>
+  <footer>
+    <p>&copy; 2026 Café Aroma. Todos los derechos reservados.</p>
+    <p><a href="https://instagram.com">Instagram</a> | <a href="https://facebook.com">Facebook</a></p>
+  </footer>
+</body>
+</html>
