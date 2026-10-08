@@ -43,6 +43,3 @@ club-abismo/
 
 Abre `index.html` en el navegador. No requiere instalación.
 
-## Autor
-
-Nombre del estudiante — Programación Web, 2026.
